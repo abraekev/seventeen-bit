@@ -1,0 +1,48 @@
+# Node modules (top-level and subprojects)
+node_modules/
+frontend/back-office/node_modules/
+frontend/front-office/node_modules/
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+pnpm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Dependency directories
+jspm_packages/
+
+# Production build
+dist/
+build/
+
+# TypeScript
+*.tsbuildinfo
+
+# Environment variables
+.env
+.env.local
+.env.*.local
+
+# Vite
+.vite/
+.vite/deps/
+
+# IDE files
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Ignore pnpm and workspace files (optional, if they are not needed in the repo)
+pnpm-lock.yaml
+pnpm-debug.log
+
+# Output of ESLint
+.eslintcache
+
+# Miscellaneous
+*.swp
+*.swo
