@@ -10,12 +10,14 @@ npm-debug.log*
 pnpm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+lerna-debug.log*
 
 # Dependency directories
 jspm_packages/
 
 # Production build
 dist/
+dist-ssr/
 build/
 
 # TypeScript
@@ -26,15 +28,24 @@ build/
 .env.local
 .env.*.local
 
+# Local environment files
+*.local
+
 # Vite
 .vite/
 .vite/deps/
 
 # IDE files
 .vscode/
+!.vscode/extensions.json
 .idea/
 .DS_Store
 Thumbs.db
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
 
 # Ignore pnpm and workspace files (optional, if they are not needed in the repo)
 pnpm-lock.yaml
