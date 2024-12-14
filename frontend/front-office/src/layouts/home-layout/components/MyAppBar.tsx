@@ -15,13 +15,16 @@ import AdbIcon from "@mui/icons-material/Adb";
 import {
   LargeView,
   SmallView,
-} from "../../common/components/responsive-containers";
+} from "../../../common/components/responsive-containers";
+import { FC } from "react";
 
+//#region CONSTANTS
 const pages = ["Products", "Pricing", "Blog"];
 const settings = ["Profile", "Account", "Dashboard", "Logout"];
+//#endregion CONSTANTS
 
-function ResponsiveAppBar() {
-  //#region Menu
+export const MyAppBar: FC = () => {
+  //#region BODY
   const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(
     null
   );
@@ -29,6 +32,7 @@ function ResponsiveAppBar() {
     null
   );
 
+  //#region HANDLERS
   const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorElNav(event.currentTarget);
   };
@@ -43,8 +47,8 @@ function ResponsiveAppBar() {
   const handleCloseUserMenu = () => {
     setAnchorElUser(null);
   };
-  //#endregion
-
+  //#endregion HANDLERS
+  //#endregion BODY
   return (
     <AppBar position="static">
       <Container maxWidth="xl">
@@ -172,5 +176,4 @@ function ResponsiveAppBar() {
       </Container>
     </AppBar>
   );
-}
-export default ResponsiveAppBar;
+};

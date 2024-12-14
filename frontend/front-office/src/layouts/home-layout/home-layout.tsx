@@ -1,7 +1,6 @@
 import { FC } from "react";
 import { Outlet } from "react-router-dom";
-import ResponsiveAppBar from "./test";
-import ResponsiveAppBarTwo from "./test2";
+import { MyAppBar } from "./components/MyAppBar";
 
 // this will be the structure of the layout
 // will need a header, footer and title bar, maybe a side bar?
@@ -9,9 +8,10 @@ import ResponsiveAppBarTwo from "./test2";
 export const HomeLayout: FC = () => {
   return (
     <>
-      <ResponsiveAppBar />
-      <ResponsiveAppBarTwo />
-      <Outlet />
+      <MyAppBar />
+      <div style={{ backgroundColor: "#f0f0f0" }}>
+        <Outlet />
+      </div>
     </>
   );
 };
