@@ -1,7 +1,7 @@
 import { FC, useState } from "react";
 import reactLogo from "@assets/react.svg";
 
-export const First: FC = () => {
+export const About: FC = () => {
   const [count, setCount] = useState(0);
 
   return (
@@ -11,7 +11,7 @@ export const First: FC = () => {
           <img src={reactLogo} className="logo react" alt="React logo" />
         </a>
       </div>
-      <h1>Front office</h1>
+      <h1>ABOUT PAGE</h1>
       <div className="card">
         <button onClick={() => setCount((count) => count + 1)}>
           count is {count}
