@@ -115,7 +115,7 @@ _.swo
 
 ### Logo, icon and theme
 
-Here are the 6 dominant colors extracted from the logo:
+The 6 dominant colors extracted from the logo:
 
   Dark Green - #354B42
   Light Gray - #B0B7B7
@@ -124,7 +124,6 @@ Here are the 6 dominant colors extracted from the logo:
   White - #EFF1EF
   Dark Blue-Black - #121B23
 
-🎨 Proposed Themes
 🌑 Dark Theme
 
   Background: #121B23 (Dark Blue-Black)
@@ -138,4 +137,3 @@ Here are the 6 dominant colors extracted from the logo:
   Primary Accent: #70BA38 (Bright Green)
   Secondary Accent: #354B42 (Dark Green)
   Text: #121B23 (Dark Blue-Black)
-```
