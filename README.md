@@ -116,24 +116,21 @@ _.swo
 ### Logo, icon and theme
 
 The 6 dominant colors extracted from the logo:
+  - Dark Green - #354B42
+  - Light Gray - #B0B7B7
+  - Gray - #747C7F
+  - Bright Green - #70BA38
+  - White - #EFF1EF
+  - Dark Blue-Black - #121B23
 
-  Dark Green - #354B42
-  Light Gray - #B0B7B7
-  Gray - #747C7F
-  Bright Green - #70BA38
-  White - #EFF1EF
-  Dark Blue-Black - #121B23
+🌑 Dark Theme:
+  - Background: #121B23 (Dark Blue-Black)
+  - Primary Accent: #70BA38 (Bright Green)
+  - Secondary Accent: #B0B7B7 (Light Gray)
+  - Text: #EFF1EF (White)
 
-🌑 Dark Theme
-
-  Background: #121B23 (Dark Blue-Black)
-  Primary Accent: #70BA38 (Bright Green)
-  Secondary Accent: #B0B7B7 (Light Gray)
-  Text: #EFF1EF (White)
-
-☀️ Light Theme
-
-  Background: #EFF1EF (White)
-  Primary Accent: #70BA38 (Bright Green)
-  Secondary Accent: #354B42 (Dark Green)
-  Text: #121B23 (Dark Blue-Black)
+☀️ Light Theme:
+  - Background: #EFF1EF (White)
+  - Primary Accent: #70BA38 (Bright Green)
+  - Secondary Accent: #354B42 (Dark Green)
+  - Text: #121B23 (Dark Blue-Black)
