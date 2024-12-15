@@ -5,7 +5,7 @@ export const SeventeenBitSvg: FC<SvgIconProps> = (props) => {
   return (
     <SvgIcon
       {...props}
-      //original (works)
+      //original
       //viewBox="0 0 900.000000 900.000000"
 
       // Scaled viewBox

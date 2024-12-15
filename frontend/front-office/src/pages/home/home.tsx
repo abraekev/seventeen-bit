@@ -1,11 +1,14 @@
-import { SeventeenBitSvg } from "@/common/components/seventeen-bit-svg";
+import { SeventeenBitImg } from "@/common/components/seventeen-bit-img";
+import { useTranslation } from "@/common/configs/translation/use-translation.hook";
 import { FC } from "react";
 
 export const Home: FC = () => {
+  const { t } = useTranslation("pages.home");
+
   return (
     <>
-      <SeventeenBitSvg />
-      <p>This is the home page.</p>
+      <SeventeenBitImg />
+      <p>{t("home_page")}</p>
     </>
   );
 };
