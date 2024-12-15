@@ -9,7 +9,6 @@ import MenuIcon from "@mui/icons-material/Menu";
 import Container from "@mui/material/Container";
 import Button from "@mui/material/Button";
 import MenuItem from "@mui/material/MenuItem";
-import AdbIcon from "@mui/icons-material/Adb";
 import {
   LargeView,
   SmallView,
@@ -77,7 +76,10 @@ export const MyAppBar: FC = () => {
                 ))}
               </Menu>
             </Box>
-            <SeventeenBitSvg />
+            <SeventeenBitSvg
+              sx={{ display: { md: "flex" }, mr: 1 }}
+              fontSize="large"
+            />
             <Typography
               variant="h5"
               noWrap
@@ -99,7 +101,10 @@ export const MyAppBar: FC = () => {
           </SmallView>
 
           <LargeView>
-            <AdbIcon sx={{ display: { md: "flex" }, mr: 1 }} />
+            <SeventeenBitSvg
+              sx={{ display: { md: "flex" }, mr: 1 }}
+              fontSize="large"
+            />
             <Typography
               variant="h6"
               noWrap
