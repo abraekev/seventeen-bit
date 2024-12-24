@@ -15,6 +15,7 @@ import {
 } from "../../../common/components/responsive-containers";
 import { FC } from "react";
 import { SeventeenBitSvg } from "../../../common/components/seventeen-bit-svg";
+import { SeventeenBitImg } from "@/common/components/seventeen-bit-img";
 
 //#region CONSTANTS
 const pages = ["Discord", "Youtube", "WoWprogress"];
@@ -53,6 +54,7 @@ export const MyAppBar: FC = () => {
               >
                 <MenuIcon />
               </IconButton>
+
               <Menu
                 id="menu-appbar"
                 anchorEl={anchorElNav}
@@ -76,28 +78,8 @@ export const MyAppBar: FC = () => {
                 ))}
               </Menu>
             </Box>
-            <SeventeenBitSvg
-              sx={{ display: { md: "flex" }, mr: 1 }}
-              fontSize="large"
-            />
-            <Typography
-              variant="h5"
-              noWrap
-              component="a"
-              href="#app-bar-with-responsive-menu"
-              sx={{
-                mr: 2,
-                display: { xs: "flex" },
-                flexGrow: 1,
-                fontFamily: "monospace",
-                fontWeight: 700,
-                letterSpacing: ".3rem",
-                color: "inherit",
-                textDecoration: "none",
-              }}
-            >
-              17b{" "}
-            </Typography>
+
+            <SeventeenBitImg size="s" />
           </SmallView>
 
           <LargeView>

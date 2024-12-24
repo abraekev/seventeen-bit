@@ -7,7 +7,7 @@ export const Home: FC = () => {
 
   return (
     <>
-      <SeventeenBitImg />
+      <SeventeenBitImg size="xl" />
       <p>{t("home_page")}</p>
     </>
   );
