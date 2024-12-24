@@ -134,3 +134,14 @@ The 6 dominant colors extracted from the logo:
   - Primary Accent: #70BA38 (Bright Green)
   - Secondary Accent: #354B42 (Dark Green)
   - Text: #121B23 (Dark Blue-Black)
+
+### Must haves
+- About
+- Socials
+  - Discord
+  - Youtube
+- WoWProgress
+- Members
+  - WarcraftLogs (?)
+  - Raid Signups 
+  - Gear tracker
