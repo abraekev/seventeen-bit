@@ -21,16 +21,21 @@ const ResponsiveContainer: FC<ResponsiveContainerProps> = ({
   ...divAttributes
 }) => {
   const isLargerthanMd = useMediaQuery((theme) => theme.breakpoints.up("md"));
-  const check = showLarge ? isLargerthanMd : !isLargerthanMd;
+  const showComponent = showLarge ? isLargerthanMd : !isLargerthanMd;
 
-  const customStyle = divAttributes.style;
+  const attributes = {
+    ...divAttributes,
+    style: {
+      width: "100%",
+      display: "flex",
+      alignitems: "center",
+      justifycontent: "space-between",
+      ...divAttributes.style,
+    },
+  };
 
-  return check ? (
-    customStyle ? (
-      <div {...divAttributes}>{children}</div>
-    ) : (
-      <StyledDiv {...divAttributes}>{children}</StyledDiv>
-    )
+  return showComponent ? (
+    <StyledDiv {...attributes}>{children}</StyledDiv>
   ) : null;
 };
 

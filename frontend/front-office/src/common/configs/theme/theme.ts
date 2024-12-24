@@ -19,7 +19,6 @@ export const darkTheme = createTheme({
     },
   },
   typography: {
-    // fontFamily: 'Roboto, Arial, sans-serif',
     body1: {
       color: "#EFF1EF", // White
     },
@@ -48,7 +47,6 @@ export const lightTheme = createTheme({
     },
   },
   typography: {
-    // fontFamily: 'Roboto, Arial, sans-serif',
     body1: {
       color: "#121B23", // Dark Blue-Black
     },

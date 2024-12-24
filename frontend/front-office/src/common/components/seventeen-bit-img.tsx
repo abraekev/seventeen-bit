@@ -1,9 +1,9 @@
-import { FC } from "react";
+import { CSSProperties, FC, ImgHTMLAttributes } from "react";
 import src from "/images/no-background-png.png";
 
-interface SeventeenBitImgProps {
-  props?: React.HTMLAttributes<HTMLImageElement>;
+interface SeventeenBitImgProps extends ImgHTMLAttributes<HTMLImageElement> {
   size?: "xs" | "s" | "md" | "lg" | "xl";
+  style?: CSSProperties;
 }
 
 const sizeMapping: Record<string, string> = {
@@ -15,17 +15,16 @@ const sizeMapping: Record<string, string> = {
 };
 
 export const SeventeenBitImg: FC<SeventeenBitImgProps> = ({
-  props,
   size = "s",
+  style,
+  ...rest
 }) => {
-  const style = { ...props?.style, height: sizeMapping[size] };
-
-  const attributes = {
-    ...props,
-    alt: "SeventeenBitImg",
-    src: src,
-    style,
-  };
-
-  return <img {...attributes}></img>;
+  return (
+    <img
+      src={src}
+      alt="Seventeen Bit"
+      style={{ ...style, height: sizeMapping[size] }}
+      {...rest}
+    ></img>
+  );
 };

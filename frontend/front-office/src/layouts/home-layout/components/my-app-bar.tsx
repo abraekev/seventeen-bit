@@ -16,10 +16,15 @@ import {
 import { FC } from "react";
 import { SeventeenBitSvg } from "../../../common/components/seventeen-bit-svg";
 import { SeventeenBitImg } from "@/common/components/seventeen-bit-img";
+import { styled } from "@mui/material";
 
-//#region CONSTANTS
 const pages = ["Discord", "Youtube", "WoWprogress"];
-//#endregion CONSTANTS
+
+const StyledImg = styled(SeventeenBitImg)`
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+`;
 
 export const MyAppBar: FC = () => {
   //#region BODY
@@ -39,47 +44,45 @@ export const MyAppBar: FC = () => {
   //#endregion HANDLERS
   //#endregion BODY
   return (
-    <AppBar position="static">
+    <AppBar position="sticky">
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           <SmallView>
-            <Box sx={{ flexGrow: 1, display: { xs: "flex" } }}>
-              <IconButton
-                size="large"
-                aria-label="account of current user"
-                aria-controls="menu-appbar"
-                aria-haspopup="true"
-                onClick={handleOpenNavMenu}
-                color="inherit"
-              >
-                <MenuIcon />
-              </IconButton>
+            <IconButton
+              size="large"
+              aria-label="account of current user"
+              aria-controls="menu-appbar"
+              aria-haspopup="true"
+              onClick={handleOpenNavMenu}
+              color="inherit"
+            >
+              <MenuIcon />
+            </IconButton>
 
-              <Menu
-                id="menu-appbar"
-                anchorEl={anchorElNav}
-                anchorOrigin={{
-                  vertical: "bottom",
-                  horizontal: "left",
-                }}
-                keepMounted
-                transformOrigin={{
-                  vertical: "top",
-                  horizontal: "left",
-                }}
-                open={Boolean(anchorElNav)}
-                onClose={handleCloseNavMenu}
-                sx={{ display: { xs: "block", md: "none" } }}
-              >
-                {pages.map((page) => (
-                  <MenuItem key={page} onClick={handleCloseNavMenu}>
-                    <Typography sx={{ textAlign: "center" }}>{page}</Typography>
-                  </MenuItem>
-                ))}
-              </Menu>
-            </Box>
+            <StyledImg size="s" />
 
-            <SeventeenBitImg size="s" />
+            <Menu
+              id="menu-appbar"
+              anchorEl={anchorElNav}
+              anchorOrigin={{
+                vertical: "bottom",
+                horizontal: "left",
+              }}
+              keepMounted
+              transformOrigin={{
+                vertical: "top",
+                horizontal: "left",
+              }}
+              open={Boolean(anchorElNav)}
+              onClose={handleCloseNavMenu}
+              sx={{ display: { xs: "block", md: "none" } }}
+            >
+              {pages.map((page) => (
+                <MenuItem key={page} onClick={handleCloseNavMenu}>
+                  <Typography sx={{ textAlign: "center" }}>{page}</Typography>
+                </MenuItem>
+              ))}
+            </Menu>
           </SmallView>
 
           <LargeView>
