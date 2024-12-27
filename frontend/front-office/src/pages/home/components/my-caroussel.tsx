@@ -9,12 +9,26 @@ import { ChevronLeft, ChevronRight } from "@mui/icons-material";
 const imageUrls = [aberrus, voti, bbqOne, bbqTwo];
 
 const StyledDiv = styled("div")`
-  width: 50vw;
+  width: 80%;
+  height: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   position: relative;
+  overflow: hidden;
+`;
+
+const StyledImg = styled("img")<{ imageIndex: number }>`
+  width: 100%;
+  height: auto;
+  flex-shrink: 0;
+  flex-grow: 0;
+  object-fit: cover; // cover will crop. 'contain' will not crop.
+
+  // smooth transition in carroussel:
+  transform: translateX(${(props) => -100 * props.imageIndex}%);
+  transition: transform 300ms ease-in-out;
 `;
 
 const StyledLeftButton = styled(IconButton)`
@@ -32,15 +46,39 @@ const StyledRightButton = styled(IconButton)`
 export const MyCaroussel = () => {
   const [imageIndex, setImageIndex] = useState(0);
 
+  const showPrevImg = () => {
+    setImageIndex((prev) => {
+      if (prev === 0) {
+        return imageUrls.length - 1;
+      }
+
+      return prev - 1;
+    });
+  };
+
+  const showNextImg = () => {
+    setImageIndex((prev) => {
+      if (prev === imageUrls.length - 1) {
+        return 0;
+      }
+
+      return prev + 1;
+    });
+  };
+
   return (
     <StyledDiv>
-      <img style={{ width: "100%" }} src={imageUrls[imageIndex]} />
+      <div style={{ width: "100%", height: "100%", display: "flex" }}>
+        {imageUrls.map((url) => (
+          <StyledImg imageIndex={imageIndex} key={url} src={url} />
+        ))}
+      </div>
 
-      <StyledLeftButton color="primary">
+      <StyledLeftButton color="primary" onClick={showPrevImg}>
         <ChevronLeft />
       </StyledLeftButton>
 
-      <StyledRightButton color="primary">
+      <StyledRightButton color="primary" onClick={showNextImg}>
         <ChevronRight />
       </StyledRightButton>
     </StyledDiv>
