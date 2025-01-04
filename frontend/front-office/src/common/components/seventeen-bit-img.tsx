@@ -2,7 +2,7 @@ import { CSSProperties, FC, ImgHTMLAttributes } from "react";
 import src from "/images/no-background-png.png";
 
 interface SeventeenBitImgProps extends ImgHTMLAttributes<HTMLImageElement> {
-  size?: "xs" | "s" | "md" | "lg" | "xl";
+  size?: "xs" | "s" | "md" | "lg" | "xl" | "xxl";
   style?: CSSProperties;
 }
 
@@ -12,6 +12,7 @@ const sizeMapping: Record<string, string> = {
   md: "6rem",
   lg: "10rem",
   xl: "15rem",
+  xxl: "20rem",
 };
 
 export const SeventeenBitImg: FC<SeventeenBitImgProps> = ({
