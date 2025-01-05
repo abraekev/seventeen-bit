@@ -4,14 +4,17 @@ export const darkTheme = createTheme({
   palette: {
     mode: "dark",
     background: {
-      default: "#121B23", // Dark Blue-Black
-      paper: "#121B23",
+      default: "#1E1F22",
+      paper: "#313338", // should be slightly lighter
     },
     primary: {
       main: "#70BA38", // Bright Green
+      dark: "#354B42", // Darker Green
     },
     secondary: {
-      main: "#B0B7B7", // Light Gray
+      main: "#313338", // Discord Grey
+      light: "#404249",
+      dark: "#2B2D31",
     },
     text: {
       primary: "#EFF1EF", // White
@@ -32,8 +35,8 @@ export const lightTheme = createTheme({
   palette: {
     mode: "light",
     background: {
-      default: "#EFF1EF", // White
-      paper: "#EFF1EF",
+      default: "#EFF1EF",
+      paper: "#EFF1EF", // should be slightly darker in light mode
     },
     primary: {
       main: "#70BA38", // Bright Green

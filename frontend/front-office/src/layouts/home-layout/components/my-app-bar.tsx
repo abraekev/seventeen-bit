@@ -6,18 +6,21 @@ import IconButton from "@mui/material/IconButton";
 import Typography from "@mui/material/Typography";
 import Menu from "@mui/material/Menu";
 import MenuIcon from "@mui/icons-material/Menu";
-import Button from "@mui/material/Button";
 import MenuItem from "@mui/material/MenuItem";
 import {
   LargeView,
   SmallView,
 } from "../../../common/components/responsive-containers";
 import { FC } from "react";
-import { SeventeenBitSvg } from "../../../common/components/seventeen-bit-svg";
 import { SeventeenBitImg } from "@/common/components/seventeen-bit-img";
-import { styled } from "@mui/material";
-
-const pages = ["Discord", "Youtube", "WoWprogress"];
+import { styled, useTheme } from "@mui/material";
+import {
+  appBarLinks,
+  AppBarLinkType,
+} from "@/common/configs/constants/app-bar-links";
+import { DiscordSvg } from "@/common/components/svg/discord.svg";
+import YouTubeIcon from "@mui/icons-material/YouTube";
+import { WowSvg } from "@/common/components/svg/wow.svg";
 
 //#region styled-components
 const StyledImg = styled(SeventeenBitImg)`
@@ -47,6 +50,7 @@ export const MyAppBar: FC = () => {
   const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(
     null
   );
+  const theme = useTheme();
 
   //#region HANDLERS
   const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>) => {
@@ -57,10 +61,26 @@ export const MyAppBar: FC = () => {
     setAnchorElNav(null);
   };
 
+  const getIconRender = (link: AppBarLinkType) => {
+    switch (link.name) {
+      case "Discord":
+        return <DiscordSvg />;
+      case "YouTube":
+        return <YouTubeIcon />;
+      case "WoWProgress":
+        return <WowSvg />;
+      default:
+        return null;
+    }
+  };
+
   //#endregion HANDLERS
   //#endregion BODY
   return (
-    <AppBar position="sticky">
+    <AppBar
+      position="sticky"
+      sx={{ backgroundColor: theme.palette.secondary.dark }}
+    >
       <Toolbar
         disableGutters
         sx={{
@@ -76,7 +96,6 @@ export const MyAppBar: FC = () => {
             aria-controls="menu-appbar"
             aria-haspopup="true"
             onClick={handleOpenNavMenu}
-            color="inherit"
           >
             <MenuIcon />
           </IconButton>
@@ -99,55 +118,39 @@ export const MyAppBar: FC = () => {
             onClose={handleCloseNavMenu}
             sx={{ display: { xs: "block", md: "none" } }}
           >
-            {pages.map((page) => (
-              <MenuItem key={page} onClick={handleCloseNavMenu}>
-                <Typography sx={{ textAlign: "center" }}>{page}</Typography>
+            {appBarLinks.map((link) => (
+              <MenuItem key={link.name}>
+                <Typography
+                  component="a"
+                  href={link.url}
+                  sx={{ textAlign: "center" }}
+                >
+                  {link.name}
+                </Typography>
               </MenuItem>
             ))}
           </Menu>
         </SmallViewContainer>
 
         <LargeViewContainer>
-          <Box
-            sx={{
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "space-between",
-            }}
-          >
-            <SeventeenBitSvg fontSize="large" />
-            <Typography
-              variant="h6"
-              noWrap
-              component="a"
-              href="#app-bar-with-responsive-menu"
-              sx={{
-                mr: 2,
-                fontFamily: "monospace",
-                fontWeight: 700,
-                letterSpacing: ".3rem",
-                color: "inherit",
-                textDecoration: "none",
-              }}
-            >
-              Seventeen bit
-            </Typography>
-          </Box>
+          <a href="/">
+            <SeventeenBitImg
+              size="s"
+              style={{ marginLeft: "1rem", marginRight: "1rem" }}
+            />
+          </a>
           <Box
             sx={{
               display: "flex",
               alignItems: "center",
               justifyContent: "right",
+              flexGrow: 1,
             }}
           >
-            {pages.map((page) => (
-              <Button
-                key={page}
-                onClick={handleCloseNavMenu}
-                sx={{ my: 2, color: "white", display: "block" }}
-              >
-                {page}
-              </Button>
+            {appBarLinks.map((link) => (
+              <IconButton key={link.name} href={link.url}>
+                {getIconRender(link)}
+              </IconButton>
             ))}
           </Box>
         </LargeViewContainer>

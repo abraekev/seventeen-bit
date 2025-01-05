@@ -1,5 +1,4 @@
-import { SeventeenBitImg } from "@/common/components/seventeen-bit-img";
-import { styled, Typography } from "@mui/material";
+import { Box, styled, Typography, useTheme } from "@mui/material";
 import { FC } from "react";
 import { Caroussel } from "./components/caroussel";
 import aberrus from "/images/aotc-aberrus.png";
@@ -26,39 +25,97 @@ const HomeContainer = styled("div")`
 const ResponsiveViewContainer = styled(ResponsiveContainer)<{
   showLarge: boolean;
 }>`
-  padding-left: 2rem;
-  padding-right: 2rem;
+  padding: 2rem;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: top;
   height: 100%;
-  max-width: ${(props) => (props.showLarge ? "50%" : "90%")};
+  // max-width: ${(props) => (props.showLarge ? "50%" : "90%")};
   background-color: ${({ theme }) => theme.palette.background.default};
   box-sizing: border-box;
 `;
 //#endregion
 
 export const Home: FC = () => {
+  const theme = useTheme();
+
   return (
     <HomeContainer>
       {[true, false].map((isLargeView, index) => (
         <ResponsiveViewContainer key={index} showLarge={isLargeView}>
-          <Typography variant="h3">Who are we?</Typography>
-          <Typography variant="body1">
-            Seventeen Bit is a Dutch speaking AOTC guild that focuses on raiding
-            and M+ push.
+          <Typography
+            variant="h4"
+            sx={{
+              marginBottom: "2rem",
+              color: theme.palette.primary.main,
+            }}
+          >
+            Welkom bij Seventeen Bit
           </Typography>
-          <SeventeenBitImg size="xl" />
-          <Caroussel images={images} />
+          <Typography
+            variant="body1"
+            sx={{ marginBottom: "2rem", textAlign: "justify" }}
+          >
+            Jouw Thuis voor AOTC Raiding en Mythic+!
+          </Typography>
+          <Typography
+            variant="body1"
+            sx={{ marginBottom: "2rem", textAlign: "justify" }}
+          >
+            "Wij zijn een Nederlandstalige World of Warcraft-gilde met een
+            passie voor AOTC-raiding en Mythic+. Of je nu een doorgewinterde
+            speler bent of net begint met endgame content, wij bieden een
+            gezellige en prestatiegerichte omgeving om samen uitdagingen aan te
+            gaan!"
+          </Typography>
 
-          <p> some text about the guild?</p>
-          <p> some text about the guild?</p>
-          <p> some text about the guild?</p>
-          <p> some text about the guild?</p>
-          <p> some text about the guild?</p>
-          <p> some text about the guild?</p>
-          <p> some text about the guild?</p>
+          <Typography
+            variant="h4"
+            sx={{
+              marginBottom: "2rem",
+              color: theme.palette.primary.main,
+            }}
+          >
+            De Apsjaars van Ragnaros{" "}
+          </Typography>
+          <Box sx={{ marginBottom: "2rem" }}>
+            <Caroussel images={images} />
+          </Box>
+
+          <Typography
+            variant="h4"
+            sx={{
+              marginBottom: "2rem",
+              color: theme.palette.primary.main,
+            }}
+          >
+            Recent Progress
+          </Typography>
+          <Typography
+            variant="body1"
+            sx={{ marginBottom: "2rem", textAlign: "justify" }}
+          >
+            Queen Ansurek - 3 oktober 2024
+          </Typography>
+
+          <Typography
+            variant="h4"
+            sx={{
+              marginBottom: "2rem",
+              color: theme.palette.primary.main,
+            }}
+          >
+            Join us!
+          </Typography>
+          <Typography
+            variant="body1"
+            sx={{ marginBottom: "2rem", textAlign: "justify" }}
+          >
+            Wil je deel uitmaken van een actieve en gezellige Nederlandstalige
+            WoW-guild? Kom met ons raiden, push Mythic+ keys of geniet van de
+            game met een leuke community. Iedereen is welkom!
+          </Typography>
         </ResponsiveViewContainer>
       ))}
     </HomeContainer>

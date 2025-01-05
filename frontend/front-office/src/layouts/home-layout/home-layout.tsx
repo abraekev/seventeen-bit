@@ -1,12 +1,14 @@
 import { FC } from "react";
 import { Outlet } from "react-router-dom";
 import { MyAppBar } from "./components/my-app-bar";
-import { alpha, Box, SxProps, useTheme } from "@mui/material";
+import { alpha, Box, SxProps, Typography, useTheme } from "@mui/material";
 //import wowImg from "/images/WoW_20th_Anniversary_Wallpaper_1920x1080.png";
 import wowImg from "/images/WoW_20th_Anniversary_Wallpaper_1080x1920.png";
+import { useResponsive } from "@/common/configs/responsive/use-responsive.hook";
 
 export const HomeLayout: FC = () => {
   const theme = useTheme();
+  const { isLargeScreen } = useResponsive();
 
   const backgroundProps: SxProps = {
     display: "flex",
@@ -44,12 +46,33 @@ export const HomeLayout: FC = () => {
     },
   };
 
+  const contentProps: SxProps = {
+    width: isLargeScreen ? "50%" : "90%",
+  };
+
+  const footerProps: SxProps = {
+    bgcolor: "#212121",
+    color: "white",
+    textAlign: "center",
+  };
+
   return (
     <>
       <MyAppBar />
 
       <Box sx={backgroundProps}>
-        <Outlet />
+        <Box sx={contentProps}>
+          <Outlet />
+        </Box>
+      </Box>
+      <Box sx={footerProps}>
+        <Typography variant="body2">
+          © {new Date().getFullYear()} Seventeen Bit. Alle rechten voorbehouden.
+        </Typography>
+        <Typography variant="body2">
+          World of Warcraft is eigendom van Blizzard Entertainment. Dit is een
+          fanwebsite.
+        </Typography>
       </Box>
     </>
   );
