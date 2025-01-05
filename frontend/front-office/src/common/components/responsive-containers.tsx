@@ -1,48 +1,37 @@
-import { styled, useMediaQuery } from "@mui/material";
-import React from "react";
 import { FC, ReactNode } from "react";
+import { useResponsive } from "../configs/responsive/use-responsive.hook";
 
-const StyledDiv = styled("div")`
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-`;
-
-interface ResponsiveContainerProps
-  extends React.HTMLAttributes<HTMLDivElement> {
+interface ResponsiveContainerProps {
   children?: ReactNode;
   showLarge?: boolean;
+  className?: string;
 }
 
-const ResponsiveContainer: FC<ResponsiveContainerProps> = ({
+export const ResponsiveContainer: FC<ResponsiveContainerProps> = ({
   children,
   showLarge,
-  ...divAttributes
+  className,
 }) => {
-  const isLargerthanMd = useMediaQuery((theme) => theme.breakpoints.up("md"));
-  const showComponent = showLarge ? isLargerthanMd : !isLargerthanMd;
+  const { isLargeScreen } = useResponsive();
+  const showComponent = showLarge ? isLargeScreen : !isLargeScreen;
 
-  const attributes = {
-    ...divAttributes,
-    style: {
-      width: "100%",
-      display: "flex",
-      alignitems: "center",
-      justifycontent: "space-between",
-      ...divAttributes.style,
-    },
-  };
-
-  return showComponent ? (
-    <StyledDiv {...attributes}>{children}</StyledDiv>
-  ) : null;
+  return showComponent ? <div className={className}>{children}</div> : null;
 };
 
-export const SmallView: FC<React.HTMLAttributes<HTMLDivElement>> = (
-  divAttributes
-) => <ResponsiveContainer {...divAttributes} showLarge={false} />;
+export const SmallView: FC<ResponsiveContainerProps> = ({
+  children,
+  className,
+}) => (
+  <ResponsiveContainer showLarge={false} className={className}>
+    {children}
+  </ResponsiveContainer>
+);
 
-export const LargeView: FC<React.HTMLAttributes<HTMLDivElement>> = (
-  divAttributes
-) => <ResponsiveContainer {...divAttributes} showLarge={true} />;
+export const LargeView: FC<ResponsiveContainerProps> = ({
+  children,
+  className,
+}) => (
+  <ResponsiveContainer showLarge={true} className={className}>
+    {children}
+  </ResponsiveContainer>
+);

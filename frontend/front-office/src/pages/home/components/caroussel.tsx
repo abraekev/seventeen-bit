@@ -21,6 +21,8 @@ const CarousselContainer = styled("div")<{
   justify-content: center;
   position: relative;
   overflow: hidden;
+
+  border-radius: 1rem;
 `;
 
 const ImagesContainer = styled("div")`
