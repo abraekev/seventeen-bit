@@ -13,7 +13,7 @@ import {
 } from "../../../common/components/responsive-containers";
 import { FC } from "react";
 import { SeventeenBitImg } from "@/common/components/seventeen-bit-img";
-import { styled, useTheme } from "@mui/material";
+import { styled } from "@mui/material";
 import {
   appBarLinks,
   AppBarLinkType,
@@ -50,7 +50,7 @@ export const MyAppBar: FC = () => {
   const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(
     null
   );
-  const theme = useTheme();
+  //const theme = useTheme();
 
   //#region HANDLERS
   const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>) => {
@@ -77,10 +77,7 @@ export const MyAppBar: FC = () => {
   //#endregion HANDLERS
   //#endregion BODY
   return (
-    <AppBar
-      position="sticky"
-      sx={{ backgroundColor: theme.palette.secondary.dark }}
-    >
+    <AppBar position="sticky">
       <Toolbar
         disableGutters
         sx={{

@@ -22,16 +22,13 @@ const HomeContainer = styled("div")`
   justify-content: center;
 `;
 
-const ResponsiveViewContainer = styled(ResponsiveContainer)<{
-  showLarge: boolean;
-}>`
+const ResponsiveViewContainer = styled(ResponsiveContainer)`
   padding: 2rem;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: top;
   height: 100%;
-  // max-width: ${(props) => (props.showLarge ? "50%" : "90%")};
   background-color: ${({ theme }) => theme.palette.background.default};
   box-sizing: border-box;
 `;
@@ -63,11 +60,10 @@ export const Home: FC = () => {
             variant="body1"
             sx={{ marginBottom: "2rem", textAlign: "justify" }}
           >
-            "Wij zijn een Nederlandstalige World of Warcraft-gilde met een
-            passie voor AOTC-raiding en Mythic+. Of je nu een doorgewinterde
-            speler bent of net begint met endgame content, wij bieden een
-            gezellige en prestatiegerichte omgeving om samen uitdagingen aan te
-            gaan!"
+            Wij zijn een Nederlandstalige World of Warcraft-gilde met een passie
+            voor AOTC-raiding en Mythic+. Of je nu een doorgewinterde speler
+            bent of net begint met endgame content, wij bieden een gezellige en
+            prestatiegerichte omgeving om samen uitdagingen aan te gaan!
           </Typography>
 
           <Typography

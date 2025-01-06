@@ -6,6 +6,10 @@ import { alpha, Box, SxProps, Typography, useTheme } from "@mui/material";
 import wowImg from "/images/WoW_20th_Anniversary_Wallpaper_1080x1920.png";
 import { useResponsive } from "@/common/configs/responsive/use-responsive.hook";
 
+// todo
+// change website to have a horizontal banner per content piece, then add the container around the content with rounded edges.
+// take turns with having  a horizontal banner and the actual wow background.
+
 export const HomeLayout: FC = () => {
   const theme = useTheme();
   const { isLargeScreen } = useResponsive();
@@ -31,7 +35,6 @@ export const HomeLayout: FC = () => {
       opacity: 1, // Ensure it's fully visible (adjust as needed)
       zIndex: -1, // Keeps it behind content
       filter: "grayscale(100%)", // Apply grayscale effect
-      backgroundColor: theme.palette.background.default,
     },
 
     "&::after": {
@@ -41,7 +44,7 @@ export const HomeLayout: FC = () => {
       left: 0,
       width: "100%",
       height: "100%",
-      backgroundColor: alpha(theme.palette.background.default, 0.8),
+      backgroundColor: alpha(theme.palette.primary.dark, 0.5),
       zIndex: -1, // Ensures it's above the background but below content
     },
   };
@@ -51,7 +54,7 @@ export const HomeLayout: FC = () => {
   };
 
   const footerProps: SxProps = {
-    bgcolor: "#212121",
+    bgcolor: "background.paper",
     color: "white",
     textAlign: "center",
   };

@@ -5,28 +5,29 @@ export const darkTheme = createTheme({
     mode: "dark",
     background: {
       default: "#1E1F22",
-      paper: "#313338", // should be slightly lighter
+      paper: "#2B2D31", // should be slightly lighter (also taken by the appBar)
     },
     primary: {
-      main: "#70BA38", // Bright Green
-      dark: "#354B42", // Darker Green
+      light: "#5FAF2F",
+      main: "#70BA38",
+      dark: "#354B42",
     },
     secondary: {
-      main: "#313338", // Discord Grey
+      main: "#383A40",
       light: "#404249",
-      dark: "#2B2D31",
+      dark: "#313338",
     },
     text: {
-      primary: "#EFF1EF", // White
-      secondary: "#B0B7B7", // Light Gray
+      primary: "#FFFFFF", // White
+      secondary: "##B5BAC1", // Light Gray
     },
   },
   typography: {
     body1: {
-      color: "#EFF1EF", // White
+      color: "#FFFFFF", // White
     },
     body2: {
-      color: "#B0B7B7", // Light Gray
+      color: "#B5BAC1", // Light Gray
     },
   },
 });
