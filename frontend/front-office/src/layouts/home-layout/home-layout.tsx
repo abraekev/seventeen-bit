@@ -44,7 +44,7 @@ export const HomeLayout: FC = () => {
       left: 0,
       width: "100%",
       height: "100%",
-      backgroundColor: alpha(theme.palette.primary.dark, 0.5),
+      backgroundColor: alpha(theme.palette.primary.dark, 0.9),
       zIndex: -1, // Ensures it's above the background but below content
     },
   };

@@ -6,6 +6,7 @@ import voti from "/images/aotc-voti.png";
 import bbqOne from "/images/bbq1.png";
 import bbqTwo from "/images/bbq2.jpg";
 import { ResponsiveContainer } from "@/common/components/responsive-containers";
+import { GlobalDrawer } from "@/drawers/global-drawer";
 
 const images = [
   { url: aberrus, alt: "Image one" },
@@ -112,6 +113,7 @@ export const Home: FC = () => {
             WoW-guild? Kom met ons raiden, push Mythic+ keys of geniet van de
             game met een leuke community. Iedereen is welkom!
           </Typography>
+          <GlobalDrawer />
         </ResponsiveViewContainer>
       ))}
     </HomeContainer>

@@ -21,6 +21,9 @@ import {
 import { DiscordSvg } from "@/common/components/svg/discord.svg";
 import YouTubeIcon from "@mui/icons-material/YouTube";
 import { WowSvg } from "@/common/components/svg/wow.svg";
+import { YoutubeSearchedFor } from "@mui/icons-material";
+import { useDispatch } from "react-redux";
+import { drawerSlice } from "@/common/configs/redux/slices/drawer-slice";
 
 //#region styled-components
 const StyledImg = styled(SeventeenBitImg)`
@@ -50,6 +53,8 @@ export const MyAppBar: FC = () => {
   const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(
     null
   );
+  const dispatch = useDispatch();
+  const { openDrawer } = drawerSlice;
   //const theme = useTheme();
 
   //#region HANDLERS
@@ -74,10 +79,13 @@ export const MyAppBar: FC = () => {
     }
   };
 
+  const handleNewMenu = () => {
+    dispatch(openDrawer("new"));
+  };
   //#endregion HANDLERS
   //#endregion BODY
   return (
-    <AppBar position="sticky">
+    <AppBar position="sticky" style={{ backgroundImage: "none" }}>
       <Toolbar
         disableGutters
         sx={{
@@ -127,6 +135,9 @@ export const MyAppBar: FC = () => {
               </MenuItem>
             ))}
           </Menu>
+          <IconButton onClick={handleNewMenu}>
+            <YoutubeSearchedFor />
+          </IconButton>
         </SmallViewContainer>
 
         <LargeViewContainer>
