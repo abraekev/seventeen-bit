@@ -1,38 +1,30 @@
+import { DrawerContentType } from "@/drawers/drawer-content-map";
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 type DrawerState = {
   open: boolean;
-  contentType: string;
-};
-
-type DrawerSlice = {
-  reducer: typeof drawerSliceConfig.reducer;
-  openDrawer: typeof drawerSliceConfig.actions.openDrawer;
-  closeDrawer: typeof drawerSliceConfig.actions.closeDrawer;
+  contentType: DrawerContentType;
 };
 
 const initialState: DrawerState = {
   open: false,
-  contentType: "default",
+  contentType: DrawerContentType.default,
 };
 
 const drawerSliceConfig = createSlice({
   name: "drawer",
   initialState,
   reducers: {
-    openDrawer: (state, action: PayloadAction<string>) => {
+    openDrawer: (state, action: PayloadAction<DrawerContentType>) => {
       state.open = true;
       state.contentType = action.payload;
     },
     closeDrawer: (state) => {
       state.open = false;
-      state.contentType = "default";
+      state.contentType = DrawerContentType.default;
     },
   },
 });
 
-export const drawerSlice: DrawerSlice = {
-  reducer: drawerSliceConfig.reducer,
-  openDrawer: drawerSliceConfig.actions.openDrawer,
-  closeDrawer: drawerSliceConfig.actions.closeDrawer,
-};
+export const { openDrawer, closeDrawer } = drawerSliceConfig.actions;
+export const drawerSliceReducer = drawerSliceConfig.reducer;

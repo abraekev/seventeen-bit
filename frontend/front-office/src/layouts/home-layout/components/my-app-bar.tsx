@@ -1,12 +1,8 @@
-import * as React from "react";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
 import IconButton from "@mui/material/IconButton";
-import Typography from "@mui/material/Typography";
-import Menu from "@mui/material/Menu";
 import MenuIcon from "@mui/icons-material/Menu";
-import MenuItem from "@mui/material/MenuItem";
 import {
   LargeView,
   SmallView,
@@ -21,9 +17,9 @@ import {
 import { DiscordSvg } from "@/common/components/svg/discord.svg";
 import YouTubeIcon from "@mui/icons-material/YouTube";
 import { WowSvg } from "@/common/components/svg/wow.svg";
-import { YoutubeSearchedFor } from "@mui/icons-material";
 import { useDispatch } from "react-redux";
-import { drawerSlice } from "@/common/configs/redux/slices/drawer-slice";
+import { openDrawer } from "@/common/configs/redux/slices/drawer-slice";
+import { DrawerContentType } from "@/drawers/drawer-content-map";
 
 //#region styled-components
 const StyledImg = styled(SeventeenBitImg)`
@@ -50,21 +46,10 @@ const SmallViewContainer = styled(SmallView)`
 
 export const MyAppBar: FC = () => {
   //#region BODY
-  const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(
-    null
-  );
   const dispatch = useDispatch();
-  const { openDrawer } = drawerSlice;
   //const theme = useTheme();
 
   //#region HANDLERS
-  const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>) => {
-    setAnchorElNav(event.currentTarget);
-  };
-
-  const handleCloseNavMenu = () => {
-    setAnchorElNav(null);
-  };
 
   const getIconRender = (link: AppBarLinkType) => {
     switch (link.name) {
@@ -80,7 +65,7 @@ export const MyAppBar: FC = () => {
   };
 
   const handleNewMenu = () => {
-    dispatch(openDrawer("new"));
+    dispatch(openDrawer(DrawerContentType.AppBarMenu));
   };
   //#endregion HANDLERS
   //#endregion BODY
@@ -95,49 +80,11 @@ export const MyAppBar: FC = () => {
         }}
       >
         <SmallViewContainer>
-          <IconButton
-            size="large"
-            aria-label="account of current user"
-            aria-controls="menu-appbar"
-            aria-haspopup="true"
-            onClick={handleOpenNavMenu}
-          >
+          <IconButton size="large" onClick={handleNewMenu}>
             <MenuIcon />
           </IconButton>
 
           <StyledImg size="s" />
-
-          <Menu
-            id="menu-appbar"
-            anchorEl={anchorElNav}
-            anchorOrigin={{
-              vertical: "bottom",
-              horizontal: "left",
-            }}
-            keepMounted
-            transformOrigin={{
-              vertical: "top",
-              horizontal: "left",
-            }}
-            open={Boolean(anchorElNav)}
-            onClose={handleCloseNavMenu}
-            sx={{ display: { xs: "block", md: "none" } }}
-          >
-            {appBarLinks.map((link) => (
-              <MenuItem key={link.name}>
-                <Typography
-                  component="a"
-                  href={link.url}
-                  sx={{ textAlign: "center" }}
-                >
-                  {link.name}
-                </Typography>
-              </MenuItem>
-            ))}
-          </Menu>
-          <IconButton onClick={handleNewMenu}>
-            <YoutubeSearchedFor />
-          </IconButton>
         </SmallViewContainer>
 
         <LargeViewContainer>

@@ -1,7 +1,13 @@
 import { ReactNode } from "react";
+import { AppBarMenu } from "./content/app-bar-menu";
 
-export const drawerContentMap: Record<string, ReactNode> = {
-  default: <></>,
-  a: <>hello</>,
-  new: <>new</>,
+export enum DrawerContentType {
+  "default",
+  "a",
+  "AppBarMenu",
+}
+export const drawerContentMap: Record<DrawerContentType, ReactNode> = {
+  [DrawerContentType.default]: null,
+  [DrawerContentType.a]: <>a</>,
+  [DrawerContentType.AppBarMenu]: <AppBarMenu />,
 };
